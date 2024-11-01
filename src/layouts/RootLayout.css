@@ -1,0 +1,168 @@
+.layout {
+    display: flex;
+    height: 100vh;
+    background-color: #E4F1F9;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #E4F1F9;
+    color: white;
+    transition: width 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    float: right;
+    margin-right: -2rem;
+    margin-top: -2rem;
+    position: relative;
+    top: 0;
+    width: 2rem;
+    height: 2rem;
+    z-index: 1;
+    color: #03071299;
+    background-color: #FFFFFF;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    box-shadow: 0px 6px 12px 0px #0307121A;
+    cursor: pointer;
+    transition: background-color 150ms;
+
+    &:hover {
+        background-color: rgb(206, 230, 243);
+    }
+}
+
+.sidebar.closed {
+    width: 5.5rem;
+}
+
+.sidebar-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    white-space: nowrap;
+    height: 110px;
+}
+
+.sidebar-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.sidebar-nav {
+    flex: 1;
+    padding: 1rem;
+}
+
+.sidebar-nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.sidebar-nav li a {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    font-weight: bold;
+    color: #03071299;
+    text-decoration: none;
+    opacity: 1;
+    border-radius: 80px;
+    transition: background-color 150ms;
+}
+
+.sidebar-nav li a.active {
+    color: white;
+    background-color: #009CE6;
+}
+
+.sidebar-nav li a.active:hover {
+    background-color: rgba(0, 156, 230, 0.9);
+}
+
+.sidebar-nav li a:hover:not(.active) {
+    background-color: rgb(206, 230, 243);
+}
+
+.sidebar-nav li a .link-text,
+.sidebar-footer .sign-out-button .sign-out-text {
+    position: absolute;
+    left: 5rem;
+    transition: opacity 0.2s, transform 0.3s;
+    opacity: 1;
+}
+
+.sidebar-footer {
+    padding: 1rem;
+    display: flex;
+}
+
+.sidebar-footer .sign-out-button {
+    display: flex;
+    justify-content: flex-start;
+    border-radius: 80px;
+    padding: 1rem;
+}
+
+.main-content {
+    width: calc(100% - 2rem);
+    padding: 2rem;
+    margin-right: 1rem;
+    border-radius: 3rem;
+    background: white;
+}
+
+.sidebar.closed .sidebar-nav li a .link-text,
+.sidebar.closed .sidebar-footer .sign-out-button .sign-out-text {
+    opacity: 0;
+    transform: translateX(-50%);
+}
+
+.amplify-scrollview.scroll-content {
+    height: calc(100% - 6rem);
+    width: 100%;
+}
+
+/* WebKit (Safari, Chrome) */
+.scroll-content::-webkit-scrollbar {
+    width: 0.75rem; /* Width of the scrollbar */
+}
+
+/* Track */
+.scroll-content::-webkit-scrollbar-track {
+    background: transparent; /* Make scrollbar track transparent */
+}
+
+/* Handle */
+.scroll-content::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scrollbar handle */
+    border-radius: 8px; /* Roundness of the scrollbar handle */
+}
+
+/* Mozilla Firefox */
+.scroll-content {
+    scrollbar-width: auto; /* Width of the scrollbar */
+    scrollbar-color: #888 transparent; /* Color of the scrollbar handle and track */
+}
+
+/* Microsoft Edge */
+@supports (-ms-ime-align: auto) {
+    .scroll-content {
+        scrollbar-width: auto; /* Width of the scrollbar */
+        scrollbar-color: #888 transparent; /* Color of the scrollbar handle and track */
+    }
+}
